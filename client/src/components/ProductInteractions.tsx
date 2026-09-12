@@ -5,6 +5,7 @@ import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const ProductInteractions = ({
   selectedColor,
@@ -41,12 +42,18 @@ const ProductInteractions = ({
   };
 
   const handleAddToCart = (type: "add" | "buy") => {
+    if (!type) return;
+
     addToCart({
       ...product,
       selectedColor,
       selectedSize,
       quantity,
     });
+
+    if (type === "add") {
+      toast.success("Product added to cart");
+    }
 
     if (type === "buy") {
       router.push("/cart");
