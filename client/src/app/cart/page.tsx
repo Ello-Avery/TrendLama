@@ -100,9 +100,9 @@ const CartPage = () => {
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         {steps.map((step) => (
           <div
-            className={`flex items-center gap-2 border-b-2 pb-4 cursor-pointer ${step.id === activeStep ? "border-gray-800" : "border-gray-200"}`}
+            className={`flex items-center gap-2 border-b-2 pb-4  ${step.id === activeStep ? "border-gray-800 cursor-pointer" : "border-gray-200 cursor-auto"}`}
             key={step.id}
-            onClick={() => router.push(`/cart?step=${step.id}`)}
+            // onClick={() => router.push(`/cart?step=${step.id}`)}
           >
             <div
               className={`rounded-full w-6 h6 text-white flex items-center justify-center ${step.id === activeStep ? "bg-gray-800" : "bg-gray-200"}`}
